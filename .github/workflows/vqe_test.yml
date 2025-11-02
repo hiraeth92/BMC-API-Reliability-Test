@@ -61,10 +61,9 @@ jobs:
         pytest test_reliability.py --junitxml=vqe-report-${{ matrix.python-version }}.xml
 
     # 6. 上傳測試報告 (Artifact)
-    # 將生成的 XML 報告上傳到 GitHub Actions 的 Artifacts 區塊，方便追蹤和下載。
+    # *** 升級為 v4，並移除棄用的 if: always() ***
     - name: Upload Test Report Artifact
-      uses: actions/upload-artifact@v3
-      if: always() # 無論測試成功或失敗，都上傳報告
+      uses: actions/upload-artifact@v4
       with:
         name: VQE-Test-Report-Python-${{ matrix.python-version }}
         path: vqe-report-${{ matrix.python-version }}.xml
