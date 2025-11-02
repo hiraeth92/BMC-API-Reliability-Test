@@ -1,0 +1,70 @@
+# 這是 GitHub Actions 的工作流程配置，用於持續整合 (CI)。
+# 它的目的是在每次程式碼變更時，自動運行 VQE 可靠度與效能測試，並在多個 Python 版本上驗證。
+
+name: VQE API 可靠度與效能驗證
+
+# 定義觸發條件：當程式碼推送到主分支 (main) 或有人發起 Pull Request 時，
+# 自動執行以下測試流程。
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+# 定義一個名為 'build' 的工作 (Job)
+jobs:
+  build:
+    # --- 步驟 1: 設定多版本測試矩陣 (Matrix Strategy) ---
+    # 設置矩陣策略，讓這個 Job 在多個 Python 版本上運行，以確保 VQE 框架的廣泛相容性。
+    strategy:
+      fail-fast: false # 即使某個版本失敗，也要讓所有版本都跑完。
+      matrix:
+        python-version: ["3.10", "3.11"] # 我們將在 3.10 和 3.11 上執行測試。
+
+    # 測試將在最新的 Ubuntu Linux 環境中運行
+    runs-on: ubuntu-latest
+
+    # 這是工作流程中的一系列執行步驟
+    steps:
+    # 1. 取得儲存庫的程式碼
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    # 2. 設定 Python 環境
+    # 使用矩陣中定義的 Python 版本
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    # 3. 依賴套件緩存 (Caching)
+    # 這是加速 CI 流程的關鍵。它會緩存 pip 下載的套件，下次運行時直接使用，節省時間。
+    - name: Cache pip dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ matrix.python-version }}-${{ hashFiles('**/requirements.txt') }} # 緩存鍵包含 OS、Python版本和 requirements.txt 的雜湊值
+        restore-keys: |
+          ${{ runner.os }}-pip-${{ matrix.python-version }}-
+
+    # 4. 安裝 VQE 框架所需的核心依賴套件
+    - name: Install dependencies
+      run: |
+        # Pytest 是測試運行器，requests 用於發送 HTTP 請求
+        python -m pip install --upgrade pip
+        pip install pytest requests
+
+    # 5. 運行 VQE 測試框架並生成 JUnit XML 報告
+    # 使用 --junitxml 參數生成專業報告。這一步是 CI 系統顯示綠色/紅色測試圖標的基礎。
+    - name: Run VQE Reliability Tests and Generate Report
+      run: |
+        pytest test_reliability.py --junitxml=vqe-report-${{ matrix.python-version }}.xml
+
+    # 6. 上傳測試報告 (Artifact)
+    # 將生成的 XML 報告上傳到 GitHub Actions 的 Artifacts 區塊，方便追蹤和下載。
+    - name: Upload Test Report Artifact
+      uses: actions/upload-artifact@v3
+      if: always() # 無論測試成功或失敗，都上傳報告
+      with:
+        name: VQE-Test-Report-Python-${{ matrix.python-version }}
+        path: vqe-report-${{ matrix.python-version }}.xml

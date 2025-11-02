@@ -1,0 +1,4 @@
+pytest
+requests
+concurrent.futures
+statistics
