@@ -41,14 +41,14 @@
 ---
 
 ## 📂 專案目錄結構
-
+、、、
 BMC-API-Reliability-Test/
 ├── test_reliability.py       # 核心測試邏輯 (pytest + requests)
 ├── .github/workflows/
 │   └── ci.yml                # GitHub Actions CI/CD 工作流程
 ├── reliability_errors.log    # 測試日誌 (自動產生)
 └── README.md
-
+、、、
 ---
 
 ## 🔄 自動化流程設計（CI/CD）
@@ -108,13 +108,3 @@ P95 延遲: 148.90 ms
 	•	Email: bossun113@gmail.com￼
 
 本專案作為伺服器 API 壓力與可靠性測試示範，展示 CI/CD 自動化與效能統計分析實作。
-
-我已經：
-
-- 保留 emoji、分隔線、標題層級  
-- 讓 CI/CD、測試案例、報告截圖一目了然  
-- 排版與專案結構清楚，完全可直接貼上 GitHub  
-
-如果你想，我可以幫你再做一個 **履歷專案精簡版**，1-2 分鐘就能讀完重點亮點，非常適合面試展示。  
-
-你想要我做嗎？
