@@ -1,5 +1,5 @@
 # 這是伺服器 BMC API 的 VQE（Vendor Quality Engineering）驗證框架。
-# 我們的目標是確保 API 在高併發壓力下，既可靠（沒有錯誤）又高效（速度快）。
+# 目標是確保 API 在高併發壓力下，既可靠（沒有錯誤）又高效（速度快）。
 
 import requests  # 用來發送 HTTP 請求給目標 API。
 import concurrent.futures  # 用來實現併發，模擬多個使用者同時存取 API。
@@ -70,7 +70,7 @@ atexit.register(cleanup_logging)
 # ---- VQE 測試標準配置 (可根據需求調整) ----
 NUM_REQUESTS = 50  # 併發請求數量：我們模擬 50 個使用者同時訪問 API。
 
-# 【優化目標】這裡設定我們要測試的 API 端點。
+# 【優化目標】這裡設定要測試的 API 端點。
 TARGET_URL = "https://www.google.com/robots.txt"
 
 # 【調整閾值】這是性能的驗收標準。平均延遲必須小於這個毫秒數 (2000 ms = 2 秒)。
