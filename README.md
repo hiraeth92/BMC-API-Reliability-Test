@@ -86,10 +86,10 @@ pytest -v -s test_reliability.py::TestApiReliability::test_performance_statistic
 --- 效能統計數據報告 ---
 目標 API: https://www.google.com/robots.txt
 併發請求數: 50
-平均延遲 (Avg Latency): 113.52 ms
-標準差 (Std Dev): 22.38 ms (VQE 穩定性指標)
-P95 延遲: 148.90 ms
-效能閾值 (Threshold): 2000 ms
+平均延遲 (Avg Latency): 287.69 ms
+標準差 (Std Dev): 68.96 ms (VQE 穩定性指標)
+P95 延遲: 384.21 ms
+效能閾值 (Threshold): 500 ms
 ✅ 效能測試通過
 
 
