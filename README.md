@@ -54,7 +54,7 @@ BMC-API-Reliability-Test/
 
 ### ✅ 可靠度測試 (Reliability Test)
 確保所有 API 請求皆返回 `HTTP 200`：
-```bash
+```
 pytest -v -s test_reliability.py::TestApiReliability::test_reliability_zero_error_rate
 
 ⚡ 效能測試 (Performance Test)
@@ -63,7 +63,7 @@ pytest -v -s test_reliability.py::TestApiReliability::test_reliability_zero_erro
 
 pytest -v -s test_reliability.py::TestApiReliability::test_performance_statistics_analysis
 
-
+```
 ⸻
 
 🔄 GitHub Actions 自動化流程
@@ -82,7 +82,7 @@ pytest -v -s test_reliability.py::TestApiReliability::test_performance_statistic
 ⸻
 
 📊 測試報告範例 (CI Log 範例)
-
+```
 --- 效能統計數據報告 ---
 目標 API: https://www.google.com/robots.txt
 併發請求數: 50
@@ -92,7 +92,7 @@ P95 延遲: 384.21 ms
 效能閾值 (Threshold): 500 ms
 ✅ 效能測試通過
 
-
+```
 ⸻
 
 🔍 未來可擴充方向
