@@ -73,8 +73,8 @@ NUM_REQUESTS = 50  # 併發請求數量：我們模擬 50 個使用者同時訪�
 # 【優化目標】這裡設定要測試的 API 端點。
 TARGET_URL = "https://www.google.com/robots.txt"
 
-# 【調整閾值】這是性能的驗收標準。平均延遲必須小於這個毫秒數 (2000 ms = 2 秒)。
-LATENCY_THRESHOLD_MS = 2000  # 效能閾值：這是通過測試的最低要求。
+# 【調整閾值】這是性能的驗收標準。平均延遲必須小於這個毫秒數 (500 ms = 0.5 秒)。
+LATENCY_THRESHOLD_MS = 500  # 效能閾值：這是通過測試的最低要求。
 
 
 class TestApiReliability:
