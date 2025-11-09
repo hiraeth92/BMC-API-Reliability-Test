@@ -67,13 +67,13 @@ pytest -v -s test_reliability.py::TestApiReliability::test_performance_statistic
 ⸻
 
 🔄 GitHub Actions 自動化流程
-
+```
 當程式碼推送 (push) 或發出 Pull Request 時，自動執行以下步驟：
 	1.	在 Python 3.10 / 3.11 上平行測試
 	2.	安裝依賴並執行 pytest
 	3.	生成 JUnit XML 測試報告
 	4.	上傳 Artifact 並於 CI 界面顯示結果
-
+```
 📂 工作流程檔案：
 
 .github/workflows/ci.yml
@@ -96,14 +96,15 @@ P95 延遲: 384.21 ms
 ⸻
 
 🔍 未來可擴充方向
+```
 	•	支援多端點自動輪測 (URL Pool)
 	•	整合壓力曲線可視化輸出 (Matplotlib / Grafana)
 	•	自動報告上傳至 Slack / Teams
 	•	增加錯誤分類統計與 API 響應驗證內容
-
+```
 ⸻
 
 👤 作者
 
 Hiraeth92
-📍 GitHub 專案連結：BMC API Reliability Test￼
+📍Notion:
