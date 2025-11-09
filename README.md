@@ -41,14 +41,14 @@
 ---
 
 ## 📂 專案目錄結構
-、、、
+```
 BMC-API-Reliability-Test/
 ├── test_reliability.py       # 核心測試邏輯 (pytest + requests)
 ├── .github/workflows/
 │   └── ci.yml                # GitHub Actions CI/CD 工作流程
 ├── reliability_errors.log    # 測試日誌 (自動產生)
 └── README.md
-、、、
+```
 ---
 
 ## 🔄 自動化流程設計（CI/CD）
