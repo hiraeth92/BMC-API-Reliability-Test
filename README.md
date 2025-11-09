@@ -97,14 +97,13 @@ P95 延遲: 384.21 ms
 
 🔍 未來可擴充方向
 ```
-	•	支援多端點自動輪測 (URL Pool)
-	•	整合壓力曲線可視化輸出 (Matplotlib / Grafana)
-	•	自動報告上傳至 Slack / Teams
-	•	增加錯誤分類統計與 API 響應驗證內容
+支援多端點自動輪測 (URL Pool)
+整合壓力曲線可視化輸出 (Matplotlib / Grafana)
+自動報告上傳至 Slack / Teams
+增加錯誤分類統計與 API 響應驗證內容
 ```
 ⸻
 
 👤 作者
 
 Hiraeth92
-📍Notion:
