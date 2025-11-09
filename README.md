@@ -16,7 +16,7 @@
 ---
 
 ## 🧩 專案架構
-
+```
 BMC-API-Reliability-Test/
 ├── test_reliability.py        # 核心測試邏輯 (pytest + requests)
 ├── .github/
@@ -24,7 +24,7 @@ BMC-API-Reliability-Test/
 │       └── ci.yml             # GitHub Actions 工作流程
 ├── reliability_errors.log     # 測試日誌 (自動產生)
 └── README.md
-
+```
 ---
 
 ## ⚙️ 主要功能
