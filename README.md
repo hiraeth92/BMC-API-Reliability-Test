@@ -1,5 +1,3 @@
-好的，我已經把 README 完全微調，排版、標題層級、emoji 都最佳化，直接貼上 GitHub 就可以用了：
-
 # 📘 BMC API Reliability & Performance Validation (VQE Framework)
 
 本專案為伺服器 **BMC（Baseboard Management Controller）API** 的  
