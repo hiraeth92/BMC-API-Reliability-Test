@@ -53,8 +53,9 @@ BMC-API-Reliability-Test/
 ## 🧾 測試項目範例
 
 ### ✅ 可靠度測試 (Reliability Test)
-確保所有 API 請求皆返回 `HTTP 200`：
 ```
+確保所有 API 請求皆返回 `HTTP 200`：
+
 pytest -v -s test_reliability.py::TestApiReliability::test_reliability_zero_error_rate
 
 ⚡ 效能測試 (Performance Test)
